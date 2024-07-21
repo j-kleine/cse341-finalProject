@@ -1,0 +1,176 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Event Management API",
+      "description": "API for managing events and attendees",
+      "version": "1.0.0"
+    },
+    "host": "localhost:3000",
+    "basePath": "/",
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      "/": {
+        "get": {
+          "tags": [
+            "Hello World"
+          ],
+          "description": "Returns a welcome message",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/events": {
+        "get": {
+          "tags": ["Events"],
+          "summary": "Gets all events",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
+        "post": {
+          "tags": ["Events"],
+          "summary": "Creates a new event",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Event Name"
+                  },
+                  "date": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2024-01-01"
+                  },
+                  "location": {
+                    "type": "string",
+                    "example": "Event Location"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "Event Description"
+                  }
+                },
+                "required": ["name", "date", "location", "description"]
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Event Created"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      "/events/{id}": {
+        "get": {
+          "tags": ["Events"],
+          "summary": "Gets a single event by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "404": {
+              "description": "Event Not Found"
+            }
+          }
+        },
+        "put": {
+          "tags": ["Events"],
+          "summary": "Updates an event by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Updated Event Name"
+                  },
+                  "date": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2024-01-02"
+                  },
+                  "location": {
+                    "type": "string",
+                    "example": "Updated Event Location"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "Updated Event Description"
+                  }
+                },
+                "required": ["name", "date", "location", "description"]
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Event Updated"
+            },
+            "404": {
+              "description": "Event Not Found"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        },
+        "delete": {
+          "tags": ["Events"],
+          "summary": "Deletes an event by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Event Deleted"
+            },
+            "404": {
+              "description": "Event Not Found"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      }
+    }
+  }
+  

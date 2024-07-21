@@ -1,0 +1,73 @@
+// LOCALHOST
+### Get all events
+GET http://localhost:3000/events
+
+### Get event by id
+GET http://localhost:3000/events/6689bd043e45b3492b258888
+
+
+### Create event
+POST http://localhost:3000/events HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Gandalf",
+    "lastName":"the White",
+    "email":"greybeard@gmail.com",
+    "favoriteColor":"white",
+    "birthday":"01.01.1111"
+}
+
+
+### Update event
+PUT http://localhost:3000/events/6670cded2d390d9c530063b0 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Gandalf",
+    "lastName":"Greybeard",
+    "email":"gg@mail.com",
+    "favoriteColor":"white",
+    "birthday":"01.01.1000"
+}
+
+
+### Delete event
+DELETE  http://localhost:3000/events/6689bea0e18cfae02ed17e23 HTTP/1.1
+
+
+
+// DEPLOYED RENDER
+### Get all events
+GET https://cse341-project2-pb21.onrender.com/events
+
+### Get event by id
+GET https://cse341-project2-pb21.onrender.com/events/6670cded2d390d9c530063b0
+
+
+### Create event
+POST https://cse341-project2-pb21.onrender.com/events HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Aragorn",
+    "lastName":"Dunadan",
+    "email":"aragdun@gmail.com",
+    "favoriteColor":"green",
+    "birthday":"01.03.2931"
+}
+
+### Update event
+PUT https://cse341-project2-pb21.onrender.com/events/6689bbb63e45b3492b258887 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Aragorn",
+    "lastName":"Dunadan",
+    "email":"aragdun@gmail.com",
+    "favoriteColor":"pink",
+    "birthday":"01.03.2931"
+}
+
+### Delete event
+DELETE  https://cse341-project2-pb21.onrender.com/events/6689bbb63e45b3492b258887 HTTP/1.1
