@@ -5,10 +5,10 @@
       "description": "API for managing events and attendees",
       "version": "1.0.0"
     },
-    "host": "localhost:3000",
+    "host": "https://cse341-finalproject-87ca.onrender.com",
     "basePath": "/",
     "schemes": [
-      "http"
+      "https"
     ],
     "paths": {
       "/": {
@@ -44,9 +44,13 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "name": {
+                  "title": {
                     "type": "string",
                     "example": "Event Name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "Event Description"
                   },
                   "date": {
                     "type": "string",
@@ -56,13 +60,9 @@
                   "location": {
                     "type": "string",
                     "example": "Event Location"
-                  },
-                  "description": {
-                    "type": "string",
-                    "example": "Event Description"
-                  }
+                  }                  
                 },
-                "required": ["name", "date", "location", "description"]
+                "required": ["title", "description", "location", "date"]
               }
             }
           ],
@@ -113,9 +113,13 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "name": {
+                  "title": {
                     "type": "string",
                     "example": "Updated Event Name"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "Updated Event Description"
                   },
                   "date": {
                     "type": "string",
@@ -125,10 +129,6 @@
                   "location": {
                     "type": "string",
                     "example": "Updated Event Location"
-                  },
-                  "description": {
-                    "type": "string",
-                    "example": "Updated Event Description"
                   }
                 },
                 "required": ["name", "date", "location", "description"]
