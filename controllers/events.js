@@ -40,8 +40,8 @@ const createEvent = async (req, res) => {
         date: req.body.date,
         location: req.body.location,
         created_by: req.body.created_by,
-        created_at: req.body.created_at,
-        updated_at: req.body.updated_at
+        created_at: new Date,
+        updated_at: new Date
     };
     const response = await mongodb.getDatabase().db().collection('events').insertOne({event});
     if (response.acknowledged) {
@@ -64,7 +64,7 @@ const updateEvent = async (req, res) => {
         location: req.body.location,
         created_by: req.body.created_by,
         created_at: req.body.created_at,
-        updated_at: req.body.updated_at
+        updated_at: new Date
     };
     const response = await mongodb.getDatabase().db().collection('events').replaceOne({ _id: eventId }, contact);
     if (response.modifiedCount > 0) {

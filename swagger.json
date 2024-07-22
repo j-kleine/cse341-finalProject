@@ -60,9 +60,13 @@
                   "location": {
                     "type": "string",
                     "example": "Event Location"
-                  }                  
+                  },
+                  "created_by": {
+                    "type": "string",
+                    "example": "Joe Admin"
+                  }
                 },
-                "required": ["title", "description", "location", "date"]
+                "required": ["title", "description", "location", "date", "created_by"]
               }
             }
           ],
@@ -129,9 +133,13 @@
                   "location": {
                     "type": "string",
                     "example": "Updated Event Location"
+                  },
+                  "created_by": {
+                    "type": "string",
+                    "example": "Updated Creator/Editor"
                   }
                 },
-                "required": ["name", "date", "location", "description"]
+                "required": ["name", "date", "location", "description", "created_by"]
               }
             }
           ],
