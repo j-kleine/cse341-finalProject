@@ -28,7 +28,7 @@ const getSingle = async (req, res) => {
             res.status(400).json({message: err});
         }
         res.setHeader('Content-Type', 'application/json');
-        res.status(204).json(event);
+        res.status(200).json(event);
     });
 };
 
@@ -45,7 +45,7 @@ const createEvent = async (req, res) => {
     };
     const response = await mongodb.getDatabase().db().collection('events').insertOne({event});
     if (response.acknowledged) {
-        res.status(204).send();
+        res.status(200).send();
     } else {
         res.status(500).json(response.error || 'An error occured while creating the event.');
     }
@@ -82,7 +82,7 @@ const deleteEvent = async (req, res) => {
     const eventId = new ObjectId(req.params.id);
     const response = await mongodb.getDatabase().db().collection('events').deleteOne({ _id: eventId });
     if (response.deleteCount > 0) {
-        res.status(204).send();
+        res.status(200).send();
     } else {
         res.status(500).json(response.error || 'An error occured while deleting the event.');
     }

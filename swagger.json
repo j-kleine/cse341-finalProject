@@ -19,7 +19,7 @@
           "description": "Returns a welcome message",
           "responses": {
             "200": {
-              "description": "OK"
+              "description": "SUCCESS"
             }
           }
         }
@@ -30,7 +30,7 @@
           "summary": "Gets all events",
           "responses": {
             "200": {
-              "description": "OK"
+              "description": "SUCCESS"
             }
           }
         },
@@ -71,8 +71,11 @@
             }
           ],
           "responses": {
-            "201": {
-              "description": "Event Created"
+            "200": {
+              "description": "SUCCESS - Event Created"
+            },
+            "401": {
+              "description": "Authentication Error"
             },
             "412": {
               "description": "Validation Error"
@@ -97,7 +100,7 @@
           ],
           "responses": {
             "200": {
-              "description": "OK"
+              "description": "SUCCESS"
             },
             "404": {
               "description": "Event Not Found"
@@ -148,7 +151,10 @@
           ],
           "responses": {
             "200": {
-              "description": "Event Updated"
+              "description": "SUCCESS - Event Updated"
+            },
+            "401": {
+              "description": "Authentication Error"
             },
             "404": {
               "description": "Event Not Found"
@@ -174,7 +180,10 @@
           ],
           "responses": {
             "200": {
-              "description": "Event Deleted"
+              "description": "SUCCESS - Event Deleted"
+            },
+            "401": {
+              "description": "Authentication Error"
             },
             "404": {
               "description": "Event Not Found"
