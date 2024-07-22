@@ -48,7 +48,7 @@ const updateEvent = async (req, res) => {
     }
     const eventId = new ObjectId(req.params.id);
     // use response = await mongodb...findOne (eventID) "created_at"
-    const createdAt = await mongodb.getDatabase().db().collection('events').find({ _id: eventId }.created_at);
+    const createdAt = await mongodb.getDatabase().db().collection('events').findOne({ _id: eventId }).created_at;
     const event = {
         title: req.body.title,
         description: req.body.description,
