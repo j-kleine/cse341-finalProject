@@ -143,6 +143,10 @@
                   "created_by": {
                     "type": "string",
                     "example": "Updated Creator/Editor"
+                  },
+                  "created_at": {
+                    "type": "date",
+                    "example": ""
                   }
                 },
                 "required": ["name", "date", "location", "description", "created_by"]
