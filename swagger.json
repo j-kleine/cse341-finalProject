@@ -5,7 +5,7 @@
       "description": "API for managing events and attendees",
       "version": "1.0.0"
     },
-    "host": "https://cse341-finalproject-87ca.onrender.com",
+    "host": "cse341-finalproject-87ca.onrender.com",
     "basePath": "/",
     "schemes": [
       "https"
