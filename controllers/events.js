@@ -3,12 +3,12 @@ const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
     //#swagger.tags=['Events]
-    // mongodb.getDatabase().db().collection('contacts').find().toArray((err, events) => {
+    // mongodb.getDatabase().db().collection('events').find().toArray((err, events) => {
     //     if (err) {
     //         res.status(400).json({message: err});
     //     }
     //     res.setHeader('Content-Type', 'application/json');
-    //     res.status(204).json(contacts);
+    //     res.status(204).json(events);
     // });
     const result = await mongodb.getDatabase().db().collection('events').find();
     result.toArray().then((events) => {
@@ -66,7 +66,7 @@ const updateEvent = async (req, res) => {
         created_at: req.body.created_at,
         updated_at: new Date
     };
-    const response = await mongodb.getDatabase().db().collection('events').replaceOne({ _id: eventId }, contact);
+    const response = await mongodb.getDatabase().db().collection('events').replaceOne({ _id: eventId }, event);
     if (response.modifiedCount > 0) {
         res.status(204).send();
     } else {
@@ -81,7 +81,7 @@ const deleteEvent = async (req, res) => {
     }
     const eventId = new ObjectId(req.params.id);
     const response = await mongodb.getDatabase().db().collection('events').deleteOne({ _id: eventId });
-    if (response.deleteCount > 0) {
+    if (response.deletedCount > 0) {
         res.status(200).send();
     } else {
         res.status(500).json(response.error || 'An error occured while deleting the event.');
