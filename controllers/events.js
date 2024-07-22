@@ -3,13 +3,6 @@ const ObjectId = require('mongodb').ObjectId;
 
 const getAll = async (req, res) => {
     //#swagger.tags=['Events]
-    // mongodb.getDatabase().db().collection('events').find().toArray((err, events) => {
-    //     if (err) {
-    //         res.status(400).json({message: err});
-    //     }
-    //     res.setHeader('Content-Type', 'application/json');
-    //     res.status(204).json(events);
-    // });
     const result = await mongodb.getDatabase().db().collection('events').find();
     result.toArray().then((events) => {
         res.setHeader('Content-Type', 'application/json');
@@ -23,12 +16,9 @@ const getSingle = async (req, res) => {
         res.status(400).json('Must use a valid event id to find an event.');
     }
     const eventId = new ObjectId(req.params.id);
-    mongodb.getDatabase().db().collection('event').find({ _id: eventId }).toArray((err, event) => {
-        if (err) {
-            res.status(400).json({message: err});
-        }
+    mongodb.getDatabase().db().collection('events').find({ _id: eventId }).toArray().then((event) => {
         res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(event);
+        res.status(200).json(event[0]);
     });
 };
 
@@ -57,13 +47,15 @@ const updateEvent = async (req, res) => {
         res.status(400).json('Must use a valid event id to update an event.');
     }
     const eventId = new ObjectId(req.params.id);
+    // use response = await mongodb...findOne (eventID) "created_at"
+    const createdAt = await mongodb.getDatabase().db().collection('events').find({ _id: eventId }.created_at);
     const event = {
         title: req.body.title,
         description: req.body.description,
         date: req.body.date,
         location: req.body.location,
         created_by: req.body.created_by,
-        created_at: req.body.created_at,
+        created_at: createdAt,
         updated_at: new Date()
     };
     const response = await mongodb.getDatabase().db().collection('events').replaceOne({ _id: eventId }, event);
