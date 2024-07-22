@@ -47,18 +47,15 @@ const updateEvent = async (req, res) => {
         res.status(400).json('Must use a valid event id to update an event.');
     }
     const eventId = new ObjectId(req.params.id);
-    const existingEvent = await mongodb.getDatabase().db().collection('events').findOne({ _id: eventId });
-    const createdAt = existingEvent.created_at;
-    const updatedEvent = {
+   const updatedEvent = { $set: {
         title: req.body.title,
         description: req.body.description,
         date: req.body.date,
         location: req.body.location,
         created_by: req.body.created_by,
-        created_at: createdAt,
         updated_at: new Date()
-    };
-    const response = await mongodb.getDatabase().db().collection('events').replaceOne({ _id: eventId }, updatedEvent);
+    } };
+    const response = await mongodb.getDatabase().db().collection('events').updateOne({ _id: eventId }, updatedEvent);
     if (response.modifiedCount > 0) {
         res.status(200).send();
     } else {
