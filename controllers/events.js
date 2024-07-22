@@ -48,12 +48,12 @@ const updateEvent = async (req, res) => {
     }
     const eventId = new ObjectId(req.params.id);
    const updatedEvent = { $set: {
-        title: req.body.title,
-        description: req.body.description,
-        date: req.body.date,
-        location: req.body.location,
-        created_by: req.body.created_by,
-        updated_at: new Date()
+        "event.title": req.body.title,
+        "event.description": req.body.description,
+        "event.date": req.body.date,
+        "event.location": req.body.location,
+        "event.created_by": req.body.created_by,
+        "event.updated_at": new Date()
     } };
     const response = await mongodb.getDatabase().db().collection('events').updateOne({ _id: eventId }, updatedEvent);
     if (response.modifiedCount > 0) {
