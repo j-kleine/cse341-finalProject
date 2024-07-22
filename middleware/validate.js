@@ -6,9 +6,9 @@ const saveEvent = (req, res, next) => {
     description: 'required|string',
     date: 'required|date',
     location: 'required|string',
-    created_by: 'required|date',
-    created_at: 'required|date',
-    updated_at: 'required|date',
+    created_by: 'required|string',
+    created_at: 'date',
+    updated_at: 'date',
   };
   validator(req.body, validationRule, {}, (err, status) => {
     if (!status) {

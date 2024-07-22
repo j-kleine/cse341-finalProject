@@ -74,6 +74,9 @@
             "201": {
               "description": "Event Created"
             },
+            "412": {
+              "description": "Validation Error"
+            },
             "500": {
               "description": "Internal Server Error"
             }
@@ -149,6 +152,9 @@
             },
             "404": {
               "description": "Event Not Found"
+            },
+            "412": {
+              "description": "Validation Error"
             },
             "500": {
               "description": "Internal Server Error"
