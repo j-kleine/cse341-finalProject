@@ -92,7 +92,7 @@
           "summary": "Gets a single event by ID",
           "parameters": [
             {
-              "name": "id",
+              "name": "Event ID",
               "in": "path",
               "required": true,
               "type": "string"
@@ -112,7 +112,7 @@
           "summary": "Updates an event by ID",
           "parameters": [
             {
-              "name": "id",
+              "name": "Event ID",
               "in": "path",
               "required": true,
               "type": "string"
@@ -172,7 +172,7 @@
           "summary": "Deletes an event by ID",
           "parameters": [
             {
-              "name": "id",
+              "name": "Event ID",
               "in": "path",
               "required": true,
               "type": "string"
@@ -209,6 +209,12 @@
           "summary": "Creates a new participant",
           "parameters": [
             {
+              "name": "Event ID",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
               "name": "body",
               "in": "body",
               "schema": {
@@ -224,7 +230,7 @@
                   },
                   "email": {
                     "type": "email",
-                    "example": "Participant Email Address"
+                    "example": "participant@email.com"
                   },
                   "event_id": {
                     "type": "string",
@@ -240,7 +246,7 @@
                     "example": "Joinend, Pending, Paid, etc."
                   }
                 },
-                "required": ["first_name", "last_name", "email", "event_id", "status"]
+                "required": ["first_name", "last_name", "email", "event_id", "event_title", "status"]
               }
             }
           ],
@@ -266,7 +272,7 @@
           "summary": "Gets a single participant by ID",
           "parameters": [
             {
-              "name": "id",
+              "name": "Participant ID",
               "in": "path",
               "required": true,
               "type": "string"
@@ -286,7 +292,7 @@
           "summary": "Updates a participant by ID",
           "parameters": [
             {
-              "name": "id",
+              "name": "Participant ID",
               "in": "path",
               "required": true,
               "type": "string"
@@ -323,7 +329,7 @@
                     "example": "Updated: Joinend, Pending, Paid, etc."
                   }
                 },
-                "required": ["first_name", "last_name", "email", "event_id", "status"]
+                "required": ["first_name", "last_name", "email", "event_id", "event_title", "status"]
               }
             }
           ],
@@ -350,7 +356,7 @@
           "summary": "Deletes a participant by ID",
           "parameters": [
             {
-              "name": "id",
+              "name": "Participant ID",
               "in": "path",
               "required": true,
               "type": "string"
@@ -374,4 +380,3 @@
       }
     }
   }
-  

@@ -24,11 +24,18 @@ const getSingle = async (req, res) => {
 
 const createParticipant = async (req, res) => {
     //#swagger.tags=['Participants']
+    if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Must use a valid event id to create a participant.');
+    }
+    const eventId = new ObjectId(req.params.id);
+    // CHECK DB FOR EVENT ID; THEN FIND TITLE IF NO ERROR
+    const existingEvent = await mongodb.getDatabase().db().collection('events').findOne({ _id: eventId });
     const participant = {
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         email: req.body.email,
-        event_id: req.body.event_id,
+        event_id: eventId,
+        event_title: existingEvent.event.title,
         joined_at: req.body.joined_at,
         status: req.body.status,
         created_at: new Date(),
@@ -48,7 +55,7 @@ const updateParticipant = async (req, res) => {
         res.status(400).json('Must use a valid participant id to update a participant.');
     }
     const participantId = new ObjectId(req.params.id);
-   const updatedParticipant = { $set: {
+    const updatedParticipant = { $set: {
         "participant.first_name": req.body.first_name,
         "participant.last_name": req.body.last_name,
         "participant.email": req.body.email,
