@@ -193,6 +193,184 @@
             }
           }
         }
+      },
+      "/participants": {
+        "get": {
+          "tags": ["Participants"],
+          "summary": "Gets all participants",
+          "responses": {
+            "200": {
+              "description": "SUCCESS"
+            }
+          }
+        },
+        "post": {
+          "tags": ["Participants"],
+          "summary": "Creates a new participant",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "first_name": {
+                    "type": "string",
+                    "example": "Participant First Name"
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "example": "Participant Last Name"
+                  },
+                  "email": {
+                    "type": "email",
+                    "example": "Participant Email Address"
+                  },
+                  "event_id": {
+                    "type": "string",
+                    "example": "Event ID"
+                  },
+                  "joined_at": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2024-01-01"
+                  },
+                  "status": {
+                    "type": "string",
+                    "example": "Joinend, Pending, Paid, etc."
+                  }
+                },
+                "required": ["first_name", "last_name", "email", "event_id", "status"]
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "SUCCESS - Participant Created"
+            },
+            "401": {
+              "description": "Authentication Error"
+            },
+            "412": {
+              "description": "Validation Error"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      "/participants/{id}": {
+        "get": {
+          "tags": ["Participants"],
+          "summary": "Gets a single participant by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "SUCCESS"
+            },
+            "404": {
+              "description": "Participant Not Found"
+            }
+          }
+        },
+        "put": {
+          "tags": ["Participants"],
+          "summary": "Updates a participant by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "first_name": {
+                    "type": "string",
+                    "example": "Updated First Name"
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "example": "Updated Last Name"
+                  },
+                  "email": {
+                    "type": "email",
+                    "example": "Updated Email Address"
+                  },
+                  "event_id": {
+                    "type": "string",
+                    "example": "Updated Event ID"
+                  },
+                  "joined_at": {
+                    "type": "string",
+                    "format": "date",
+                    "example": "2024-01-02"
+                  },
+                  "status": {
+                    "type": "string",
+                    "example": "Updated: Joinend, Pending, Paid, etc."
+                  }
+                },
+                "required": ["first_name", "last_name", "email", "event_id", "status"]
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "SUCCESS - Participant Updated"
+            },
+            "401": {
+              "description": "Authentication Error"
+            },
+            "404": {
+              "description": "Event Not Found"
+            },
+            "412": {
+              "description": "Validation Error"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        },
+        "delete": {
+          "tags": ["Participants"],
+          "summary": "Deletes a participant by ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "SUCCESS - Participant Deleted"
+            },
+            "401": {
+              "description": "Authentication Error"
+            },
+            "404": {
+              "description": "Event Not Found"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
       }
     }
   }

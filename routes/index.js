@@ -10,6 +10,7 @@ router.use('/', require('./swagger'));
 // });
 
 router.use('/events', require('./events'));
+router.use('/participants', require('./participants'));
 
 router.get('/login', passport.authenticate('github'), (req, res) => {});
 
