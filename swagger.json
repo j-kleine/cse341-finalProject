@@ -242,7 +242,7 @@
                     "example": "Joinend, Pending, Paid, etc."
                   }
                 },
-                "required": ["first_name", "last_name", "email", "event_id", "event_title", "status"]
+                "required": ["first_name", "last_name", "email", "joined_at", "status"]
               }
             }
           ],
@@ -321,7 +321,7 @@
                     "example": "Updated: Joinend, Pending, Paid, etc."
                   }
                 },
-                "required": ["first_name", "last_name", "email", "event_id", "event_title", "status"]
+                "required": ["first_name", "last_name", "email", "joined_at", "status"]
               }
             }
           ],
