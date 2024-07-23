@@ -33,12 +33,13 @@ const createParticipant = async (req, res) => {
     if (!existingEvent) {
         return res.status(404).json('Event not found.');
     }
+    const eventTitle = existingEvent.event?.title;
     const participant = {
         first_name,
         last_name,
         email,
         event_id: eventId,
-        event_title: existingEvent.title,
+        event_title: eventTitle,
         joined_at,
         status,
         created_at: new Date(),
