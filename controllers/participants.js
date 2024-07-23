@@ -25,7 +25,7 @@ const getSingle = async (req, res) => {
 const createParticipant = async (req, res) => {
     //#swagger.tags=['Participants']
     if (!ObjectId.isValid(req.params.id)) {
-        res.status(400).json('Must use a valid event id to create a participant.' + " " + req.params.id);
+        res.status(400).json('Must use a valid event id to create a participant.' + ' ' + req.params.id);
     }
     const eventId = new ObjectId(req.params.id);
     // CHECK DB FOR EVENT ID; THEN FIND TITLE IF NO ERROR
