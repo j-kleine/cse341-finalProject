@@ -1,0 +1,35 @@
+// DEPLOYED RENDER
+### Get all events
+GET https://cse341-finalproject-87ca.onrender.com/participants
+
+### Get event by id
+GET https://cse341-finalproject-87ca.onrender.com/participants/669fdaa3ea5572d41900f4f0
+
+
+### Create event
+POST https://cse341-finalproject-87ca.onrender.com/participants HTTP/1.1
+content-type: application/json
+
+{
+    "first_name": "John",
+    "last_name": "Smith",
+    "email": "john.smith@example.com",
+    "event_id": "66a021d22775db19e960349c",
+    "joined_at": "2024-07-23",
+    "status": "Joined"
+}
+
+### Update event
+PUT https://cse341-finalproject-87ca.onrender.com/participants/669fdaa3ea5572d41900f4f0 HTTP/1.1
+content-type: application/json
+
+{
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john.doe@example.com",
+    "joined_at": "2024-08-01",
+    "status": "Paid"
+}
+
+### Delete event
+DELETE  https://cse341-finalproject-87ca.onrender.com/participants/669fdaa3ea5572d41900f4f0 HTTP/1.1

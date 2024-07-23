@@ -11,13 +11,11 @@ POST https://cse341-finalproject-87ca.onrender.com/events HTTP/1.1
 content-type: application/json
 
 {
-    "event": {
-      "title": "TEST General Conference October 2024",
-      "description": "General conference is the worldwide gathering of The Church of Jesus Christ of Latter-day Saints. The Church invites everyone — of all faiths, beliefs and backgrounds from everywhere in the world — to watch, listen and participate.",
-      "date": "2024-10-05",
-      "location": "Temple Square, Salt Lake City, Utah, USA",
-      "created_by": "The Admin"
-    }
+    "title": "TEST General Conference October 2024",
+    "description": "General conference is the worldwide gathering of The Church of Jesus Christ of Latter-day Saints. The Church invites everyone — of all faiths, beliefs and backgrounds from everywhere in the world — to watch, listen and participate.",
+    "date": "2024-10-05",
+    "location": "Temple Square, Salt Lake City, Utah, USA",
+    "created_by": "The Admin"
 }
 
 ### Update event
@@ -25,13 +23,11 @@ PUT https://cse341-finalproject-87ca.onrender.com/events/66a021d22775db19e960349
 content-type: application/json
 
 {
-    "event": {
-      "title": "TEST General Conference April 2025",
-      "description": "General conference is the worldwide gathering of The Church of Jesus Christ of Latter-day Saints. The Church invites everyone — of all faiths, beliefs and backgrounds from everywhere in the world — to watch, listen and participate.",
-      "date": "2025-04-05",
-      "location": "Temple Square, Salt Lake City, Utah, USA",
-      "created_by": "The Admin"
-    }
+    "title": "TEST General Conference April 2025",
+    "description": "General conference is the worldwide gathering of The Church of Jesus Christ of Latter-day Saints. The Church invites everyone — of all faiths, beliefs and backgrounds from everywhere in the world — to watch, listen and participate.",
+    "date": "2025-04-05",
+    "location": "Temple Square, Salt Lake City, Utah, USA",
+    "created_by": "The Admin"
 }
 
 ### Delete event
