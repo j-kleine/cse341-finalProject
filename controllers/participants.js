@@ -59,7 +59,6 @@ const updateParticipant = async (req, res) => {
         "participant.first_name": req.body.first_name,
         "participant.last_name": req.body.last_name,
         "participant.email": req.body.email,
-        "participant.event_id": req.body.event_id,
         "participant.joined_at": req.body.joined_at,
         "participant.status": req.body.status,
         "participant.updated_at": new Date()

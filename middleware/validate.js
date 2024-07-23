@@ -28,7 +28,7 @@ const saveParticipant = (req, res, next) => {
     first_name: 'required|string',
     last_name: 'required|string',
     email: 'required|email',
-    event_id: 'required|string',
+    event_id: 'string',
     event_title: 'string',
     joined_at: 'required|date',
     status: 'required|string',
