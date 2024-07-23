@@ -226,6 +226,10 @@
                     "type": "email",
                     "example": "participant@email.com"
                   },
+                  "event_id": {
+                  "type": "string",
+                  "example": "Event ID"
+                  },
                   "joined_at": {
                     "type": "string",
                     "format": "date",
