@@ -46,11 +46,11 @@
                 "properties": {
                   "title": {
                     "type": "string",
-                    "example": "Event Name"
+                    "example": "EventName"
                   },
                   "description": {
                     "type": "string",
-                    "example": "Event Description"
+                    "example": "EventDescription"
                   },
                   "date": {
                     "type": "string",
@@ -59,11 +59,11 @@
                   },
                   "location": {
                     "type": "string",
-                    "example": "Event Location"
+                    "example": "EventLocation"
                   },
                   "created_by": {
                     "type": "string",
-                    "example": "Joe Admin"
+                    "example": "JoeAdmin"
                   }
                 },
                 "required": ["title", "description", "location", "date", "created_by"]
@@ -125,11 +125,11 @@
                 "properties": {
                   "title": {
                     "type": "string",
-                    "example": "Updated Event Name"
+                    "example": "UpdatedEventName"
                   },
                   "description": {
                     "type": "string",
-                    "example": "Updated Event Description"
+                    "example": "UpdatedEventDescription"
                   },
                   "date": {
                     "type": "string",
@@ -138,11 +138,11 @@
                   },
                   "location": {
                     "type": "string",
-                    "example": "Updated Event Location"
+                    "example": "UpdatedEventLocation"
                   },
                   "created_by": {
                     "type": "string",
-                    "example": "Updated Creator/Editor"
+                    "example": "UpdatedCreator/Editor"
                   }
                 },
                 "required": ["name", "date", "location", "description", "created_by"]
@@ -172,7 +172,7 @@
           "summary": "Deletes an event by ID",
           "parameters": [
             {
-              "name": "Event ID",
+              "name": "id",
               "in": "path",
               "required": true,
               "type": "string"
@@ -216,11 +216,11 @@
                 "properties": {
                   "first_name": {
                     "type": "string",
-                    "example": "Participant First Name"
+                    "example": "ParticipantFirstName"
                   },
                   "last_name": {
                     "type": "string",
-                    "example": "Participant Last Name"
+                    "example": "ParticipantLastName"
                   },
                   "email": {
                     "type": "email",
@@ -228,7 +228,7 @@
                   },
                   "event_id": {
                   "type": "string",
-                  "example": "Event ID"
+                  "example": "EventID"
                   },
                   "joined_at": {
                     "type": "string",
@@ -237,7 +237,7 @@
                   },
                   "status": {
                     "type": "string",
-                    "example": "Joinend, Pending, Paid, etc."
+                    "example": "Joinend,Pending,Paid,etc."
                   }
                 },
                 "required": ["first_name", "last_name", "email", "joined_at", "status"]
@@ -299,15 +299,15 @@
                 "properties": {
                   "first_name": {
                     "type": "string",
-                    "example": "Updated First Name"
+                    "example": "UpdatedFirstName"
                   },
                   "last_name": {
                     "type": "string",
-                    "example": "Updated Last Name"
+                    "example": "UpdatedLastName"
                   },
                   "email": {
                     "type": "email",
-                    "example": "Updated Email Address"
+                    "example": "UpdatedEmailAddress"
                   },
                   "joined_at": {
                     "type": "string",
@@ -316,7 +316,7 @@
                   },
                   "status": {
                     "type": "string",
-                    "example": "Updated: Joinend, Pending, Paid, etc."
+                    "example": "Updated:Joinend,Pending,Paid,etc."
                   }
                 },
                 "required": ["first_name", "last_name", "email", "joined_at", "status"]
