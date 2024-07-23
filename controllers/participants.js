@@ -24,22 +24,23 @@ const getSingle = async (req, res) => {
 
 const createParticipant = async (req, res) => {
     //#swagger.tags=['Participants']
-    if (!ObjectId.isValid(req.params.id)) {
-        res.status(400).json('Must use a valid event id to create a participant.' + ' ' + req.params.id);
+    const { first_name, last_name, email, event_id, joined_at, status } = req.body;
+    if (!ObjectId.isValid(event_id)) {
+        res.status(400).json('Must use a valid event id to create a participant.');
     }
-    const eventId = new ObjectId(req.params.id);
+    const eventId = new ObjectId(event_id);
     const existingEvent = await mongodb.getDatabase().db().collection('events').findOne({ _id: eventId });
     if (!existingEvent) {
         return res.status(404).json('Event not found.');
     }
     const participant = {
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
-        email: req.body.email,
+        first_name,
+        last_name,
+        email,
         event_id: eventId,
-        event_title: existingEvent.event.title,
-        joined_at: req.body.joined_at,
-        status: req.body.status,
+        event_title: existingEvent.title,
+        joined_at,
+        status,
         created_at: new Date(),
         updated_at: new Date()
     };

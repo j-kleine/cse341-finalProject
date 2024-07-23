@@ -9,7 +9,7 @@ router.get('/', participantsController.getAll);
 
 router.get('/:id', participantsController.getSingle);
 
-router.post('/:id', isAuthenticated, validation.saveParticipant, participantsController.createParticipant);
+router.post('/', isAuthenticated, validation.saveParticipant, participantsController.createParticipant);
 
 router.put('/:id', isAuthenticated, validation.saveParticipant, participantsController.updateParticipant);
 
