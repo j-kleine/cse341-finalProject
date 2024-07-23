@@ -1,73 +1,38 @@
-// LOCALHOST
-### Get all events
-GET http://localhost:3000/events
-
-### Get event by id
-GET http://localhost:3000/events/6689bd043e45b3492b258888
-
-
-### Create event
-POST http://localhost:3000/events HTTP/1.1
-content-type: application/json
-
-{
-    "firstName":"Gandalf",
-    "lastName":"the White",
-    "email":"greybeard@gmail.com",
-    "favoriteColor":"white",
-    "birthday":"01.01.1111"
-}
-
-
-### Update event
-PUT http://localhost:3000/events/6670cded2d390d9c530063b0 HTTP/1.1
-content-type: application/json
-
-{
-    "firstName":"Gandalf",
-    "lastName":"Greybeard",
-    "email":"gg@mail.com",
-    "favoriteColor":"white",
-    "birthday":"01.01.1000"
-}
-
-
-### Delete event
-DELETE  http://localhost:3000/events/6689bea0e18cfae02ed17e23 HTTP/1.1
-
-
-
 // DEPLOYED RENDER
 ### Get all events
-GET https://cse341-project2-pb21.onrender.com/events
+GET https://cse341-finalproject-87ca.onrender.com/events
 
 ### Get event by id
-GET https://cse341-project2-pb21.onrender.com/events/6670cded2d390d9c530063b0
+GET https://cse341-finalproject-87ca.onrender.com/events/66a021d22775db19e960349c
 
 
 ### Create event
-POST https://cse341-project2-pb21.onrender.com/events HTTP/1.1
+POST https://cse341-finalproject-87ca.onrender.com/events HTTP/1.1
 content-type: application/json
 
 {
-    "firstName":"Aragorn",
-    "lastName":"Dunadan",
-    "email":"aragdun@gmail.com",
-    "favoriteColor":"green",
-    "birthday":"01.03.2931"
+    "event": {
+      "title": "TEST General Conference October 2024",
+      "description": "General conference is the worldwide gathering of The Church of Jesus Christ of Latter-day Saints. The Church invites everyone — of all faiths, beliefs and backgrounds from everywhere in the world — to watch, listen and participate.",
+      "date": "2024-10-05",
+      "location": "Temple Square, Salt Lake City, Utah, USA",
+      "created_by": "The Admin"
+    }
 }
 
 ### Update event
-PUT https://cse341-project2-pb21.onrender.com/events/6689bbb63e45b3492b258887 HTTP/1.1
+PUT https://cse341-finalproject-87ca.onrender.com/events/66a021d22775db19e960349c HTTP/1.1
 content-type: application/json
 
 {
-    "firstName":"Aragorn",
-    "lastName":"Dunadan",
-    "email":"aragdun@gmail.com",
-    "favoriteColor":"pink",
-    "birthday":"01.03.2931"
+    "event": {
+      "title": "TEST General Conference April 2025",
+      "description": "General conference is the worldwide gathering of The Church of Jesus Christ of Latter-day Saints. The Church invites everyone — of all faiths, beliefs and backgrounds from everywhere in the world — to watch, listen and participate.",
+      "date": "2025-04-05",
+      "location": "Temple Square, Salt Lake City, Utah, USA",
+      "created_by": "The Admin"
+    }
 }
 
 ### Delete event
-DELETE  https://cse341-project2-pb21.onrender.com/events/6689bbb63e45b3492b258887 HTTP/1.1
+DELETE  https://cse341-finalproject-87ca.onrender.com/events/66a021d22775db19e960349c HTTP/1.1
