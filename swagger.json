@@ -421,7 +421,7 @@
           }
         }
       },
-      "/comment/{id}": {
+      "/comments/{id}": {
         "get": {
           "tags": ["Comments"],
           "summary": "Gets a single comment by comment ID",
