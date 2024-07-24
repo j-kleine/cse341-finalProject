@@ -66,7 +66,7 @@
                     "example": "JoeAdmin"
                   }
                 },
-                "required": ["title", "description", "location", "date", "created_by"]
+                "required": ["title", "description", "date", "location", "created_by"]
               }
             }
           ],
@@ -145,7 +145,7 @@
                     "example": "UpdatedCreator/Editor"
                   }
                 },
-                "required": ["name", "date", "location", "description", "created_by"]
+                "required": ["title", "description", "date", "location", "created_by"]
               }
             }
           ],
@@ -227,8 +227,8 @@
                     "example": "participant@email.com"
                   },
                   "event_id": {
-                  "type": "string",
-                  "example": "EventID"
+                    "type": "string",
+                    "example": "EventID"
                   },
                   "joined_at": {
                     "type": "string",
@@ -240,7 +240,7 @@
                     "example": "Joinend,Pending,Paid,etc."
                   }
                 },
-                "required": ["first_name", "last_name", "email", "joined_at", "status"]
+                "required": ["first_name", "last_name", "email", "event_id", "joined_at", "status"]
               }
             }
           ],
@@ -331,7 +331,7 @@
               "description": "Authentication Error"
             },
             "404": {
-              "description": "Event Not Found"
+              "description": "Participant Not Found"
             },
             "412": {
               "description": "Validation Error"
@@ -360,7 +360,155 @@
               "description": "Authentication Error"
             },
             "404": {
-              "description": "Event Not Found"
+              "description": "Participant Not Found"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      "/comments": {
+        "get": {
+          "tags": ["Comments"],
+          "summary": "Gets all comments",
+          "responses": {
+            "200": {
+              "description": "SUCCESS"
+            }
+          }
+        },
+        "post": {
+          "tags": ["Comments"],
+          "summary": "Creates a new comment with reference to event by event ID",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "comment": {
+                    "type": "string",
+                    "example": "CommentText"
+                  },
+                  "comment_type": {
+                    "type": "string",
+                    "example": "Feedback,Instruction,etc."
+                  },
+                  "event_id": {
+                    "type": "string",
+                    "example": "EventID"
+                  }
+                },
+                "required": ["comment", "comment_type", "event_id"]
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "SUCCESS - Comment Created"
+            },
+            "401": {
+              "description": "Authentication Error"
+            },
+            "412": {
+              "description": "Validation Error"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      "/comment/{id}": {
+        "get": {
+          "tags": ["Comments"],
+          "summary": "Gets a single comment by comment ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "SUCCESS"
+            },
+            "404": {
+              "description": "Comment Not Found"
+            }
+          }
+        },
+        "put": {
+          "tags": ["Comments"],
+          "summary": "Updates a comment by comment ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "comment": {
+                    "type": "string",
+                    "example": "UpdatedCommentText"
+                  },
+                  "comment_type": {
+                    "type": "string",
+                    "example": "UpdatedFeedback,Instruction,etc."
+                  }
+                },
+                "required": ["comment", "comment_type"]
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "SUCCESS - Comment Updated"
+            },
+            "401": {
+              "description": "Authentication Error"
+            },
+            "404": {
+              "description": "Comment Not Found"
+            },
+            "412": {
+              "description": "Validation Error"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        },
+        "delete": {
+          "tags": ["Comments"],
+          "summary": "Deletes a comment by comment ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "SUCCESS - Comment Deleted"
+            },
+            "401": {
+              "description": "Authentication Error"
+            },
+            "404": {
+              "description": "Comment Not Found"
             },
             "500": {
               "description": "Internal Server Error"
