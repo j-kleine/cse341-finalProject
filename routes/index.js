@@ -6,6 +6,7 @@ router.use('/', require('./swagger'));
 
 router.use('/events', require('./events'));
 router.use('/participants', require('./participants'));
+router.use('/comments', require('./comments'));
 
 router.get('/login', passport.authenticate('github'), (req, res) => {});
 
