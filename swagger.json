@@ -14,9 +14,9 @@
       "/": {
         "get": {
           "tags": [
-            "Hello World"
+            "Home"
           ],
-          "description": "Returns a welcome message",
+          "description": "Returns the welcome message",
           "responses": {
             "200": {
               "description": "SUCCESS"
