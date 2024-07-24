@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
       "title": "Event Management API",
-      "description": "API for managing events and attendees",
+      "description": "This is an API for managing events and attendees.",
       "version": "1.0.0"
     },
     "host": "cse341-finalproject-87ca.onrender.com",
@@ -89,7 +89,7 @@
       "/events/{id}": {
         "get": {
           "tags": ["Events"],
-          "summary": "Gets a single event by ID",
+          "summary": "Gets a single event by event ID",
           "parameters": [
             {
               "name": "id",
@@ -109,7 +109,7 @@
         },
         "put": {
           "tags": ["Events"],
-          "summary": "Updates an event by ID",
+          "summary": "Updates an event by event ID",
           "parameters": [
             {
               "name": "id",
@@ -169,7 +169,7 @@
         },
         "delete": {
           "tags": ["Events"],
-          "summary": "Deletes an event by ID",
+          "summary": "Deletes an event by event ID",
           "parameters": [
             {
               "name": "id",
@@ -206,7 +206,7 @@
         },
         "post": {
           "tags": ["Participants"],
-          "summary": "Creates a new participant",
+          "summary": "Creates a new participant with reference to event by event ID",
           "parameters": [
             {
               "name": "body",
@@ -263,7 +263,7 @@
       "/participants/{id}": {
         "get": {
           "tags": ["Participants"],
-          "summary": "Gets a single participant by ID",
+          "summary": "Gets a single participant by participant ID",
           "parameters": [
             {
               "name": "id",
@@ -283,7 +283,7 @@
         },
         "put": {
           "tags": ["Participants"],
-          "summary": "Updates a participant by ID",
+          "summary": "Updates a participant by participant ID",
           "parameters": [
             {
               "name": "id",
@@ -343,7 +343,7 @@
         },
         "delete": {
           "tags": ["Participants"],
-          "summary": "Deletes a participant by ID",
+          "summary": "Deletes a participant by participant ID",
           "parameters": [
             {
               "name": "id",
