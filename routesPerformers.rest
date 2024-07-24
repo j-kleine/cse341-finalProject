@@ -1,0 +1,28 @@
+// DEPLOYED RENDER
+### Get all events
+GET https://cse341-finalproject-87ca.onrender.com/performers
+
+### Get event by id
+GET https://cse341-finalproject-87ca.onrender.com/performers/{performerId}
+
+
+### Create event
+POST https://cse341-finalproject-87ca.onrender.com/performers
+
+{
+    "first_name": "Dieter F.",
+    "last_name": "Uchtdorf",
+    "event_id": "{eventID}"
+}
+
+### Update event
+PUT https://cse341-finalproject-87ca.onrender.com/performers/{performerId} HTTP/1.1
+content-type: application/json
+
+{
+    "first_name": "Dieter F.",
+    "last_name": "Uchtdorf"
+}
+
+### Delete event
+DELETE  https://cse341-finalproject-87ca.onrender.com/performers/{performerId} HTTP/1.1

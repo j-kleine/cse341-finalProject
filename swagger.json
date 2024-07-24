@@ -515,6 +515,154 @@
             }
           }
         }
+      },
+      "/performers": {
+        "get": {
+          "tags": ["Performers"],
+          "summary": "Gets all performers",
+          "responses": {
+            "200": {
+              "description": "SUCCESS"
+            }
+          }
+        },
+        "post": {
+          "tags": ["Performers"],
+          "summary": "Creates a new performer with reference to event by event ID",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "first_name": {
+                    "type": "string",
+                    "example": "PerformerFirstName"
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "example": "PerformerLastName"
+                  },
+                  "event_id": {
+                    "type": "string",
+                    "example": "EventID"
+                  }
+                },
+                "required": ["first_name", "last_name", "event_id"]
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "SUCCESS - Performer Created"
+            },
+            "401": {
+              "description": "Authentication Error"
+            },
+            "412": {
+              "description": "Validation Error"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      "/performers/{id}": {
+        "get": {
+          "tags": ["Performers"],
+          "summary": "Gets a single performer by performer ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "SUCCESS"
+            },
+            "404": {
+              "description": "Performer Not Found"
+            }
+          }
+        },
+        "put": {
+          "tags": ["Performers"],
+          "summary": "Updates a performer by performer ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "first_name": {
+                    "type": "string",
+                    "example": "UpdatedFirstName"
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "example": "UpdatedLastName"
+                  }
+                },
+                "required": ["first_name", "last_name"]
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "SUCCESS - Performer Updated"
+            },
+            "401": {
+              "description": "Authentication Error"
+            },
+            "404": {
+              "description": "Performer Not Found"
+            },
+            "412": {
+              "description": "Validation Error"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        },
+        "delete": {
+          "tags": ["Performers"],
+          "summary": "Deletes a performer by performer ID",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "SUCCESS - Performer Deleted"
+            },
+            "401": {
+              "description": "Authentication Error"
+            },
+            "404": {
+              "description": "Performer Not Found"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
       }
     }
   }

@@ -70,8 +70,31 @@ const saveComment = (req, res, next) => {
   });
 };
 
+const savePerformer = (req, res, next) => {
+  const validationRule = {
+    first_name: 'required|string',
+    last_name: 'required|string',
+    event_id: 'string',
+    event_title: 'string',
+    created_at: 'date',
+    updated_at: 'date',
+  };
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) {
+      res.status(412).send({
+        success: false,
+        message: 'Validation failed',
+        data: err
+      });
+    } else {
+      next();
+    }
+  });
+};
+
 module.exports = {
   saveEvent,
   saveParticipant,
-  saveComment
+  saveComment,
+  savePerformer
 };
