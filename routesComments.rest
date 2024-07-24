@@ -1,0 +1,28 @@
+// DEPLOYED RENDER
+### Get all events
+GET https://cse341-finalproject-87ca.onrender.com/comments
+
+### Get event by id
+GET https://cse341-finalproject-87ca.onrender.com/comments/{commentId}
+
+
+### Create event
+POST https://cse341-finalproject-87ca.onrender.com/comments
+
+{
+    "comment_text": "CommentText",
+    "comment_type": "Feedback,Instruction,etc.",
+    "event_id": "{eventID}"
+}
+
+### Update event
+PUT https://cse341-finalproject-87ca.onrender.com/comments/{commentId} HTTP/1.1
+content-type: application/json
+
+{
+    "comment_text": "CommentText",
+    "comment_type": "Feedback,Instruction,etc."
+}
+
+### Delete event
+DELETE  https://cse341-finalproject-87ca.onrender.com/comments/{commentId} HTTP/1.1
