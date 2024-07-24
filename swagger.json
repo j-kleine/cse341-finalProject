@@ -388,7 +388,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "comment": {
+                  "comment_text": {
                     "type": "string",
                     "example": "CommentText"
                   },
@@ -401,7 +401,7 @@
                     "example": "EventID"
                   }
                 },
-                "required": ["comment", "comment_type", "event_id"]
+                "required": ["comment_text", "comment_type", "event_id"]
               }
             }
           ],
@@ -458,7 +458,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "comment": {
+                  "comment_text": {
                     "type": "string",
                     "example": "UpdatedCommentText"
                   },
@@ -467,7 +467,7 @@
                     "example": "UpdatedFeedback,Instruction,etc."
                   }
                 },
-                "required": ["comment", "comment_type"]
+                "required": ["comment_text", "comment_type"]
               }
             }
           ],
