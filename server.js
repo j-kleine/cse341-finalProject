@@ -9,12 +9,12 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
-app.use(bodyParser.json());
 app.use(session({
     secret: "secret",
     resave: false ,
-    saveUninitialized: true ,
-}))
+    saveUninitialized: false ,
+}));
+app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use((req, res, next) => {
@@ -47,13 +47,19 @@ passport.deserializeUser((user, done) => {
     done(null, user);
 });
 
-app.get('/', (req, res) => { res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out")});
+app.get('/', (req, res) => {
+    res.send(req.session.user ? `Logged in as ${req.session.user.displayName}` : "Logged Out")});
 
 app.get('/github/callback', passport.authenticate('github', {
-    failureRedirect: '/api-docs', session: false}),
-    (req, res) => {
+    failureRedirect: '/api-docs'
+}), (req, res) => {
         req.session.user = req.user;
-        res.redirect('/');
+        req.session.save((err) => {
+            if (err) {
+                console.error(err);
+            }
+            res.redirect('/');
+        });
     }
 );
 
