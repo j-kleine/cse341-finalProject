@@ -36,7 +36,7 @@ passport.use(new GitHubStrategy({
     callbackURL: process.env.CALLBACK_URL
     },
     function(accessToken, refreshToken, profile, done) {
-        console.log('GitHub profile:', profile);
+        // console.log('GitHub profile:', profile);
         return done(null, profile);
     }
 ));
@@ -49,8 +49,8 @@ passport.deserializeUser((user, done) => {
 });
 
 app.get('/', (req, res) => {
-    console.log('Session user:', req.session.user);
-    res.send(req.session.user ? `Logged in as ${req.session.user.username}` : "Logged Out")});
+    // console.log('Session user:', req.session.user);
+    res.send(req.session.user ? `Logged in as <${req.session.user.username}>` : "Logged Out")});
 
 app.get('/github/callback', passport.authenticate('github', {
     failureRedirect: '/api-docs'
@@ -60,7 +60,7 @@ app.get('/github/callback', passport.authenticate('github', {
             if (err) {
                 console.error(err);
             }
-            console.log('Session after save:', req.session.user);
+            // console.log('Session after save:', req.session.user);
             res.redirect('/');
         });
     }
