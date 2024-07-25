@@ -86,7 +86,7 @@ describe('Events API', () => {
     });
 
     test('PUT /events/:id should update an event', async () => {
-        console.log(eventId);
+        // console.log(eventId);
         const updatedEvent = {
             title: 'Updated Event',
             description: 'This is an updated event.',
@@ -97,7 +97,7 @@ describe('Events API', () => {
         const response = await request(app).put(`/events/${eventId}`).send(updatedEvent);
         expect(response.status).toBe(200);
         const event = await db.collection('events').findOne({ _id: eventId });
-        console.log(event);
+        // console.log(event);
         expect(event.event.title).toBe('Updated Event');
     });
 
