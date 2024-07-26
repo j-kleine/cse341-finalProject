@@ -38,7 +38,7 @@ Last Two Collections with CRUD Operations, OAuth and Testing
 Finish Project
 - GitHub: [https://github.com/j-kleine/cse341-finalProject](https://github.com/j-kleine/cse341-finalProject "CSE341-finalProject Repo")
 - Render URL: [https://cse341-finalproject-87ca.onrender.com](https://cse341-finalproject-87ca.onrender.com "CSE341-finalProject live URL")
-- YouTube Video: [https://youtu.be/rYiiGsj93_c](https://youtu.be/rYiiGsj93_c "CSE341-finalProject W07 Video Demonstration")
+- YouTube Video: [https://youtu.be/EV3D-DJw9No](https://youtu.be/EV3D-DJw9No "CSE341-finalProject W07 Video Demonstration")
 
 ## Author:
 **Joschua Kleine**
